@@ -8,7 +8,7 @@ from langchain_core.messages import SystemMessage
 import datetime
 
 # Initialize the Gemini model (gemini-1.5-flash is extremely fast and great at tool calling)
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
+llm = ChatGoogleGenerativeAI(model="gemini-flash-latest")
 
 def triage_node(state):
     """
