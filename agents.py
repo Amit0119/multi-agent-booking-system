@@ -1,15 +1,15 @@
 from dotenv import load_dotenv
 load_dotenv() 
 
-# Changed from Groq to Google Gemini
-from langchain_google_genai import ChatGoogleGenerativeAI
+# Reverted back to Groq for stable and fast free-tier multi-agent execution
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import SystemMessage
 import datetime
 
-# Using a 'lite' model to get higher free-tier rate limits, and adding built-in retries
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash-lite-001",
+# Initialize the Groq model (Using 8B model for extreme speed)
+llm = ChatGroq(
+    model="llama-3.1-8b-instant",
     max_retries=5
 )
 

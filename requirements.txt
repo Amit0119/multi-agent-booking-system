@@ -7,3 +7,4 @@ langgraph-checkpoint-sqlite
 requests
 python-dotenv
 langchain-google-genai
+langchain-groq
