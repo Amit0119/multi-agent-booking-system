@@ -9,7 +9,7 @@ import datetime
 
 # Initialize the Groq model (Using 8B model for extreme speed)
 llm = ChatGroq(
-    model="llama-3.1-8b-instant",
+    model="llama-3.3-70b-versatile",
     max_retries=5
 )
 
