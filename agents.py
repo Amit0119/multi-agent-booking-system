@@ -1,13 +1,14 @@
 from dotenv import load_dotenv
 load_dotenv() 
 
-from langchain_groq import ChatGroq
+# Changed from Groq to Google Gemini
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import SystemMessage
 import datetime
 
-# Initialize the Groq model
-llm = ChatGroq(model="llama-3.3-70b-versatile")
+# Initialize the Gemini model (gemini-1.5-flash is extremely fast and great at tool calling)
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
 def triage_node(state):
     """
@@ -35,7 +36,7 @@ def booking_node(state):
     
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
     
-    # Strict validation and CRITICAL fix for Groq tool usage error
+    # Strict validation and tool usage logic
     sys_msg = SystemMessage(
         content=f"You are a GigaCorp Booking Specialist. Today's date is {current_date}. "
                 "Follow these rules strictly: "
